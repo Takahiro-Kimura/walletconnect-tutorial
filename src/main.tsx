@@ -20,7 +20,7 @@ const projectId = import.meta.env.VITE_WALLETCONNECT_PROJECT_ID || ""
 const metadata = {
   name: 'AppKit',
   description: 'AppKit Example',
-  url: 'https://web3modal.com', // origin must match your domain & subdomain
+  url: 'https://takahiro-kimura.github.io/walletconnect-tutorial/', // origin must match your domain & subdomain
   icons: ['https://avatars.githubusercontent.com/u/37784886']
 }
 
