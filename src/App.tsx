@@ -11,6 +11,8 @@ import { parseEther, formatUnits } from "viem";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import "./App.css";
 
+import { SendMessageToL1 } from "./SendMessageToL1";
+
 function App() {
   const { address, isConnecting, isDisconnected } = useAccount();
   const { open } = useWeb3Modal();
@@ -85,7 +87,7 @@ function App() {
           </center>
           <div>
             <button disabled={isPending} type="submit">
-              {isPending ? "Confirming..." : "Send"}
+              {isPending ? "Confirming..." : "Send ETH"}
             </button>
           </div>
           {hash && <div>Transaction Hash: {hash}</div>}
@@ -98,6 +100,8 @@ function App() {
           )}
         </form>
       </center>
+      <hr />
+      <SendMessageToL1 />
       <hr />
       <button onClick={() => disconnect()}>Disconnect</button>
     </>
