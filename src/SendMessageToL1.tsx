@@ -1,12 +1,9 @@
-import * as ethers from "ethers";
-import { Provider, utils, Wallet } from "zksync-ethers";
-
+import { utils } from "zksync-ethers";
 import {
   useWriteContract,
   useWaitForTransactionReceipt,
   type BaseError,
 } from "wagmi";
-
 import { stringToHex } from "viem";
 
 export const SendMessageToL1 = () => {
