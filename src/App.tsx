@@ -12,6 +12,7 @@ import { useWeb3Modal } from "@web3modal/wagmi/react";
 import "./App.css";
 
 import { SendMessageToL1 } from "./SendMessageToL1";
+import { VerifyMessage } from "./verifyMessage";
 
 function App() {
   const { address, isConnecting, isDisconnected } = useAccount();
@@ -102,6 +103,8 @@ function App() {
       </center>
       <hr />
       <SendMessageToL1 />
+      <hr />
+      <VerifyMessage />
       <hr />
       <button onClick={() => disconnect()}>Disconnect</button>
     </>
