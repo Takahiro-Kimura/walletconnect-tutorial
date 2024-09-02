@@ -99,8 +99,10 @@ export const VerifyMessage = () => {
     let l2Receipt;
     try {
       l2Receipt = await getTransactionDetails(txHash);
-    } catch (e) {
-      setError(e.message);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setError(e.message);
+      }
       return;
     }
     if (!l2Receipt) {
@@ -111,8 +113,10 @@ export const VerifyMessage = () => {
     let l2Proof;
     try {
       l2Proof = await getL2LogProof(txHash, l2Receipt.index);
-    } catch (e) {
-      setError(e.message);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setError(e.message);
+      }
       return;
     }
     if (!l2Proof) {
@@ -126,14 +130,14 @@ export const VerifyMessage = () => {
       address: zkAddress as `0x${string}`,
       functionName: "proveL2MessageInclusion",
       args: [
-        l2Receipt.l1BatchNumber,
-        l2Proof.id,
+        l2Receipt.l1BatchNumber as any,
+        l2Proof.id as any,
         {
-          txNumberInBatch: l2Receipt.l1BatchTxIndex,
-          sender: address,
+          txNumberInBatch: l2Receipt.l1BatchTxIndex ?? 0,
+          sender: address as `0x${string}`,
           data: stringToHex(message),
         },
-        l2Proof.proof,
+        l2Proof.proof as any,
       ],
       chainId: sepolia.id,
     });

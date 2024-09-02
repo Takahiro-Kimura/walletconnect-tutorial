@@ -12,7 +12,7 @@ import { useWeb3Modal } from "@web3modal/wagmi/react";
 import "./App.css";
 
 import { SendMessageToL1 } from "./SendMessageToL1";
-import { VerifyMessage } from "./verifyMessage";
+import { VerifyMessage } from "./VerifyMessage";
 
 function App() {
   const { address, isConnecting, isDisconnected } = useAccount();
